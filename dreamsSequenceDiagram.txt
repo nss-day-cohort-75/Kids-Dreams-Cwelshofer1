@@ -1,0 +1,22 @@
+title Kids Dreams
+
+participant Main.js
+participant Kids.js
+participant CelebrityList.js
+participant Pairings.js
+participant database.js
+participant index.hmtl
+
+Main.js->Pairings.js: Import Pairings from Pairings.js
+Main.js <--Pairings.js:Get list of pairings HTML data
+Main.js->CelebrityList.js: Import Celebrities from CelebrityList.js
+Main.js <-- CelebrityList.js :get list of celebrity HTML data
+Main.js-> Kids.js:import Kids from Kids.js
+Main.js <-- Kids.js:get list of kids HTML data
+Main.js->index.html: Make a variable called mainContainer has document.querySelector() in side of it to target id="container" in the index
+Main.js<--index.html: Targets id="container" and stores it in the variable
+note over Main.js: creates const applicationHTML variable to store all HTML in a template literal
+note over Main.js:After writing out text for the DOM the Kids() function is called to list kids inside the text
+note over Main.js:After writing out more text for the DOM the Celebrities() function is called to list celebrities inside the text
+note over Main.js:Finally after writing out even more text for the DOM the Pairings() function is called to list the pairings of both inside the text
+note over Main.js: The content of target id="container" is filled with all of the HTML stored in applicationHTML by this function mainContainer.innerHTML = applicationHTML it now all displays on the index.html the whole template literal.
