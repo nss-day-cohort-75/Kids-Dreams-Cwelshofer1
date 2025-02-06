@@ -1,15 +1,15 @@
 import { getCelebrities } from "./database.js"
 
-const celebrities = getCelebrities()
+const celebrities = getCelebrities
 
 export const Celebrities = () => {
     let html = "<ol>"
 
-    for (const star of celebrities) {
+    for (const celebrity of celebrities) {
         html += `<li 
                     data-id="${celebrity.id}" 
                     data-type="celebrity"
-                    data-sport="${celebrty.sport}"
+                    data-sport="${celebrity.sport}"
                     id="star--${celebrity.id}">
                     ${celebrity.name}
                 </li>`
@@ -18,3 +18,26 @@ export const Celebrities = () => {
     html += "</ol>"
     return html
 }
+
+
+document.addEventListener(
+    "click",
+    (clickEvent) => {
+        const itemClicked = clickEvent.target
+
+        if (itemClicked.dataset.type === "celebrity") {
+
+            const celebrityId = itemClicked.dataset.id
+            
+
+            for (const celebrity of celebrities) {
+                if( celebrity.id === parseInt(celebrityId)){
+              
+
+                    window.alert(` ${celebrity.name} is a ${celebrity.sport} star`)
+                    
+                }
+            }
+        }
+    }
+)
